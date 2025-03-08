@@ -1,0 +1,24 @@
+2025-03-08 13:30:19,761 - PathRAG - INFO - Logger initialized for working directory: data
+2025-03-08 13:30:19,761 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-03-08 13:30:19,761 - PathRAG - INFO - Load KV full_docs with 0 data
+2025-03-08 13:30:19,761 - PathRAG - INFO - Load KV text_chunks with 0 data
+2025-03-08 13:30:39,634 - PathRAG - INFO - Logger initialized for working directory: data
+2025-03-08 13:30:39,634 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-03-08 13:30:39,634 - PathRAG - INFO - Load KV full_docs with 0 data
+2025-03-08 13:30:39,634 - PathRAG - INFO - Load KV text_chunks with 0 data
+2025-03-08 13:48:24,222 - PathRAG - INFO - Logger initialized for working directory: data
+2025-03-08 13:48:24,222 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-03-08 13:48:24,222 - PathRAG - INFO - Load KV full_docs with 0 data
+2025-03-08 13:48:24,222 - PathRAG - INFO - Load KV text_chunks with 0 data
+2025-03-08 13:48:24,223 - PathRAG - INFO - [New Docs] inserting 1 docs
+2025-03-08 13:48:26,397 - PathRAG - INFO - [New Chunks] inserting 1 chunks
+2025-03-08 13:48:26,397 - PathRAG - INFO - Inserting 1 vectors to chunks
+2025-03-08 13:48:27,291 - PathRAG - INFO - [Entity Extraction]...
+2025-03-08 13:49:07,097 - PathRAG - INFO - Inserting entities into storage...
+2025-03-08 13:49:07,100 - PathRAG - INFO - Inserting relationships into storage...
+2025-03-08 13:49:07,101 - PathRAG - INFO - Inserting 13 vectors to entities
+2025-03-08 13:49:08,040 - PathRAG - INFO - Inserting 7 vectors to relationships
+2025-03-08 13:49:08,839 - PathRAG - INFO - Writing graph with 13 nodes, 7 edges
+2025-03-08 13:49:11,928 - PathRAG - INFO - kw_prompt result:
+2025-03-08 13:49:12,525 - PathRAG - INFO - Local query uses 12 entites, 7 relations, 1 text units
+2025-03-08 13:49:13,334 - PathRAG - INFO - Global query uses 13 entites, 7 relations, 1 text units

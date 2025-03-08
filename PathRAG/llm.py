@@ -44,6 +44,10 @@ else:
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 @retry(
     stop=stop_after_attempt(3),
@@ -56,8 +60,7 @@ async def openai_complete_if_cache(
     system_prompt=None,
     history_messages=[],
     base_url="https://api.openai.com/v1",
-
-    api_key="",
+    api_key=os.environ["OPENAI_API_KEY"],
     **kwargs,
 ) -> str:
     if api_key:
@@ -149,13 +152,10 @@ async def azure_openai_complete_if_cache(
     return content
 
 
-
-
-
 @retry(
     stop=stop_after_attempt(5),
     wait=wait_exponential(multiplier=1, max=60),
-    retry=retry_if_exception_type((BedrockError)),
+    # retry=retry_if_exception_type((BedrockError)),
 )
 async def bedrock_complete_if_cache(
     model,
@@ -184,16 +184,12 @@ async def bedrock_complete_if_cache(
         message["content"] = [{"text": message["content"]}]
         messages.append(message)
 
-
     messages.append({"role": "user", "content": [{"text": prompt}]})
-
 
     args = {"modelId": model, "messages": messages}
 
-
     if system_prompt:
         args["system"] = [{"text": system_prompt}]
-
 
     inference_params_map = {
         "max_tokens": "maxTokens",
@@ -208,7 +204,6 @@ async def bedrock_complete_if_cache(
             args["inferenceConfig"][inference_params_map.get(param, param)] = (
                 kwargs.pop(param)
             )
-
 
     session = aioboto3.Session()
     async with session.client("bedrock-runtime") as bedrock_async_client:
@@ -329,7 +324,6 @@ async def ollama_model_if_cache(
     response = await ollama_client.chat(model=model, messages=messages, **kwargs)
     if stream:
 
-
         async def inner():
             async for chunk in response:
                 yield chunk["message"]["content"]
@@ -378,7 +372,6 @@ async def lmdeploy_model_if_cache(
     quant_policy=0,
     **kwargs,
 ) -> str:
-
     try:
         import lmdeploy
         from lmdeploy import version_info, GenerationConfig
@@ -493,7 +486,7 @@ async def nvidia_openai_complete(
 ) -> str:
     keyword_extraction = kwargs.pop("keyword_extraction", None)
     result = await openai_complete_if_cache(
-        "nvidia/llama-3.1-nemotron-70b-instruct", 
+        "nvidia/llama-3.1-nemotron-70b-instruct",
         prompt,
         system_prompt=system_prompt,
         history_messages=history_messages,
@@ -577,13 +570,12 @@ async def ollama_model_complete(
 )
 async def zhipu_complete_if_cache(
     prompt: Union[str, List[Dict[str, str]]],
-    model: str = "glm-4-flashx", 
+    model: str = "glm-4-flashx",
     api_key: Optional[str] = None,
     system_prompt: Optional[str] = None,
     history_messages: List[Dict[str, str]] = [],
     **kwargs,
 ) -> str:
-
     try:
         from zhipuai import ZhipuAI
     except ImportError:
@@ -592,7 +584,6 @@ async def zhipu_complete_if_cache(
     if api_key:
         client = ZhipuAI(api_key=api_key)
     else:
-
         client = ZhipuAI()
 
     messages = []
@@ -600,17 +591,14 @@ async def zhipu_complete_if_cache(
     if not system_prompt:
         system_prompt = "You are a helpful assistant. 注意内容里的敏感词用***替换。"
 
-
     if system_prompt:
         messages.append({"role": "system", "content": system_prompt})
     messages.extend(history_messages)
     messages.append({"role": "user", "content": prompt})
 
-
     logger.debug("===== Query Input to LLM =====")
     logger.debug(f"Query: {prompt}")
     logger.debug(f"System prompt: {system_prompt}")
-
 
     kwargs = {
         k: v for k, v in kwargs.items() if k not in ["hashing_kv", "keyword_extraction"]
@@ -624,11 +612,9 @@ async def zhipu_complete_if_cache(
 async def zhipu_complete(
     prompt, system_prompt=None, history_messages=[], keyword_extraction=False, **kwargs
 ):
-
     keyword_extraction = kwargs.pop("keyword_extraction", None)
 
     if keyword_extraction:
-
         extraction_prompt = """You are a helpful assistant that extracts keywords from text.
         Please analyze the content and extract two types of keywords:
         1. High-level keywords: Important concepts and main themes
@@ -654,7 +640,6 @@ async def zhipu_complete(
                 history_messages=history_messages,
                 **kwargs,
             )
-
 
             try:
                 data = json.loads(response)
@@ -686,7 +671,6 @@ async def zhipu_complete(
                 high_level_keywords=[], low_level_keywords=[]
             )
     else:
-
         return await zhipu_complete_if_cache(
             prompt=prompt,
             system_prompt=system_prompt,
@@ -704,7 +688,6 @@ async def zhipu_complete(
 async def zhipu_embedding(
     texts: list[str], model: str = "embedding-3", api_key: str = None, **kwargs
 ) -> np.ndarray:
-
     try:
         from zhipuai import ZhipuAI
     except ImportError:
@@ -712,7 +695,6 @@ async def zhipu_embedding(
     if api_key:
         client = ZhipuAI(api_key=api_key)
     else:
-
         client = ZhipuAI()
 
     if isinstance(texts, str):
@@ -739,7 +721,7 @@ async def openai_embedding(
     texts: list[str],
     model: str = "text-embedding-3-small",
     base_url="https://api.openai.com/v1",
-    api_key="",
+    api_key=os.getenv("OPENAI_API_KEY"),
 ) -> np.ndarray:
     if api_key:
         os.environ["OPENAI_API_KEY"] = api_key
@@ -798,9 +780,9 @@ async def nvidia_openai_embedding(
     model: str = "nvidia/llama-3.2-nv-embedqa-1b-v1",
     base_url: str = "https://integrate.api.nvidia.com/v1",
     api_key: str = None,
-    input_type: str = "passage",  
-    trunc: str = "NONE",  
-    encode: str = "float",  
+    input_type: str = "passage",
+    trunc: str = "NONE",
+    encode: str = "float",
 ) -> np.ndarray:
     if api_key:
         os.environ["OPENAI_API_KEY"] = api_key
@@ -913,7 +895,6 @@ async def bedrock_embedding(
                     body = json.dumps(
                         {
                             "inputText": text,
-                            
                             "embeddingTypes": ["float"],
                         }
                     )
@@ -968,7 +949,6 @@ async def hf_embedding(texts: list[str], tokenizer, embed_model) -> np.ndarray:
 
 
 async def ollama_embedding(texts: list[str], embed_model, **kwargs) -> np.ndarray:
-
     embed_text = []
     ollama_client = ollama.Client(**kwargs)
     for text in texts:
@@ -985,7 +965,6 @@ async def ollama_embed(texts: list[str], embed_model, **kwargs) -> np.ndarray:
 
 
 class Model(BaseModel):
-
     gen_func: Callable[[Any], str] = Field(
         ...,
         description="A function that generates the response from the llm. The response must be a string",
@@ -1011,7 +990,7 @@ class MultiModel:
     async def llm_model_func(
         self, prompt, system_prompt=None, history_messages=[], **kwargs
     ) -> str:
-        kwargs.pop("model", None)  
+        kwargs.pop("model", None)
         kwargs.pop("keyword_extraction", None)
         kwargs.pop("mode", None)
         next_model = self._next_model()

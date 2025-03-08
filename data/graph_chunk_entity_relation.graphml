@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d5" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d4" for="edge" attr.name="description" attr.type="string"/>
+<key id="d3" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d2" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d1" for="node" attr.name="description" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_type" attr.type="string"/>
+<graph edgedefault="directed"><node id="&quot;URBAN TRANSPORTATION&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Urban Transportation encompasses the systems and methods for moving people and goods within urban areas, including public transport, personal vehicles, and bicycles, thereby influencing city planning and congestion management."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;ARTIFICIAL INTELLIGENCE (AI)&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Artificial Intelligence (AI) refers to the simulation of human intelligence by machines, which includes decision-making processes, problem-solving, and data analysis capabilities."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;RESEARCH&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Research refers to the systematic investigation and study of materials and sources to establish facts and reach new conclusions, particularly within the context of developing scalable AI systems."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;MULTI-AGENT REINFORCEMENT LEARNING (MARL)&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Multi-Agent Reinforcement Learning (MARL) is an advanced AI paradigm that utilizes multiple agents to learn optimal behaviors through interactions and rewards in various scenarios."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;AGENT-LEVEL TOPOLOGICAL DECOUPLING&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"Agent-Level Topological Decoupling is a strategy applied in decentralized AI to allow agents to operate independently while still contributing to the global dynamic of the system."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;TRAFFIC NETWORKS&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Traffic Networks represent complex systems of transportation where numerous vehicles and traffic signals interact, requiring efficient communication to optimize traffic flow and reduce delays."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;MODEL LEARNING&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"Model Learning is the process of refining AI models based on previous data to improve decision-making and policy reinforcement, particularly useful in dynamic environments with limited data."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;COMMUNICATION COSTS&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Communication Costs refer to the expenses and resources required for data exchange between agents in distributed systems, affecting the overall efficiency of AI implementations."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;SCALABLE DECISION-MAKING&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"Scalable Decision-Making is the ability to maintain effective decision processes within AI systems as they grow larger and more complex."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;DECENTRALIZED POLICY OPTIMIZATION FRAMEWORK&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"The Decentralized Policy Optimization Framework is a methodological approach for improving decision-making in distributed AI systems by allowing agents to operate with local information while maintaining overall system cohesion."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;SAMPLE-EFFICIENT APPROACH&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"The Sample-Efficient Approach involves obtaining useful information and learning from fewer interactions within a system, which is crucial in large-scale AI implementations where interaction costs are high."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;DISTRIBUTED AI&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Distributed AI is a method of artificial intelligence where processing and decision-making tasks are distributed across multiple systems or nodes, enhancing performance and scalability."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<node id="&quot;EMPIRICAL RESULTS&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"Empirical Results are outcomes derived from practical experiments and observations that demonstrate the performance and effectiveness of AI models in real-world applications."</data>
+  <data key="d2">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</node>
+<edge source="&quot;URBAN TRANSPORTATION&quot;" target="&quot;DECENTRALIZED POLICY OPTIMIZATION FRAMEWORK&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"The Decentralized Policy Optimization Framework is applicable in Urban Transportation to enhance scalable decision-making across numerous agents, such as traffic lights and vehicles."</data>
+  <data key="d5">"system efficiency, urban planning"</data>
+  <data key="d6">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</edge>
+<edge source="&quot;ARTIFICIAL INTELLIGENCE (AI)&quot;" target="&quot;MULTI-AGENT REINFORCEMENT LEARNING (MARL)&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"Multi-Agent Reinforcement Learning (MARL) serves as a solution to enhance scalability and performance within the broader category of Artificial Intelligence (AI)."</data>
+  <data key="d5">"AI paradigms, scalability"</data>
+  <data key="d6">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</edge>
+<edge source="&quot;AGENT-LEVEL TOPOLOGICAL DECOUPLING&quot;" target="&quot;MODEL LEARNING&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"Agent-Level Topological Decoupling enhances Model Learning by allowing agents to independently gather and process information, improving overall learning efficiency."</data>
+  <data key="d5">"learning, dynamic systems"</data>
+  <data key="d6">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</edge>
+<edge source="&quot;TRAFFIC NETWORKS&quot;" target="&quot;SAMPLE-EFFICIENT APPROACH&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"The Sample-Efficient Approach can significantly improve decision-making within Traffic Networks by optimizing information usage and reducing communication costs."</data>
+  <data key="d5">"optimization, efficiency"</data>
+  <data key="d6">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</edge>
+<edge source="&quot;COMMUNICATION COSTS&quot;" target="&quot;SCALABLE DECISION-MAKING&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"Communication Costs significantly impact Scalable Decision-Making, as high costs can hinder effective data sharing among agents in an AI system."</data>
+  <data key="d5">"cost-efficiency, system design"</data>
+  <data key="d6">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</edge>
+<edge source="&quot;DISTRIBUTED AI&quot;" target="&quot;RESEARCH&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"Research investigates the development and effectiveness of Distributed AI, aiming to solve challenges in scalability and decision-making in large systems."</data>
+  <data key="d5">"research, technology advancement"</data>
+  <data key="d6">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</edge>
+<edge source="&quot;EMPIRICAL RESULTS&quot;" target="&quot;SCALABLE DECISION-MAKING&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"Empirical Results provide vital evidence for the effectiveness of various methods applied to achieve Scalable Decision-Making in AI systems."</data>
+  <data key="d5">"validation, performance"</data>
+  <data key="d6">chunk-ea7adb1b84305db087229b6680ff13ac</data>
+</edge>
+</graph></graphml>

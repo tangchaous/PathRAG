@@ -4,7 +4,7 @@ aiohttp
 
 # database packages
 graspologic
-hnswlib
+#hnswlib # installed using conda
 nano-vectordb
 neo4j
 networkx
